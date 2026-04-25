@@ -1,0 +1,17 @@
+mk/dad/services/camel/S3MonitoringRoute$S3FileProcessor.class
+mk/dad/services/controller/FileUploadController$ExistsResponse.class
+mk/dad/services/service/FileStorageService.class
+mk/dad/services/storage/AwsStorageProvider.class
+mk/dad/services/service/EmployeeService.class
+mk/dad/services/repository/EmployeeRepository.class
+mk/dad/services/controller/EmployeeController.class
+mk/dad/services/entity/Employee.class
+mk/dad/services/camel/S3MonitoringRoute.class
+mk/dad/services/Main.class
+mk/dad/services/storage/LocalStorageProvider.class
+mk/dad/services/config/StorageConfig.class
+mk/dad/services/controller/FileUploadController.class
+mk/dad/services/storage/StorageProvider.class
+mk/dad/services/controller/FileUploadController$UploadResponse.class
+mk/dad/services/camel/CsvFileProcessor.class
+mk/dad/services/controller/FileUploadController$DeleteResponse.class

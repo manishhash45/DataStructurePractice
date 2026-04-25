@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: FileStorageService
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    url: jdbc:h2:file:./data/testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+        jdbc:
+          batch_size: 20
+
+server:
+  port: 8086
+
+file-storage:
+  provider: local # Change to 'aws' for AWS S3
+  local:
+    bucket-path: /Users/in46076885/Documents/Workspace/FileStorageService/s3-bucket
+  aws:
+    region: us-east-1
+    access-key: ${AWS_ACCESS_KEY_ID:}
+    secret-key: ${AWS_SECRET_ACCESS_KEY:}
+    bucket-name: my-file-storage-bucket
+
+camel:
+  springboot:
+    main-run-controller: false
+  component:
+    aws2-s3:
+      auto-create-bucket: true
+
+logging:
+  level:
+    mk.dad.services: DEBUG
+    org.apache.camel: INFO
+    org.hibernate.SQL: DEBUG
+    org.springframework.web: INFO

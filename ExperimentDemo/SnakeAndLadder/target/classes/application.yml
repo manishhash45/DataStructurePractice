@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: SnakeAndLadder
+  profiles:
+    active: dev
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    mk.dad.games: DEBUG
+    org.springframework.web: INFO
+    org.springframework.boot: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

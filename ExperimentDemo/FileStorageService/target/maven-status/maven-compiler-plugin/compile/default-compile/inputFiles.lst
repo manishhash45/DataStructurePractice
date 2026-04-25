@@ -1,0 +1,13 @@
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/Main.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/camel/CsvFileProcessor.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/camel/S3MonitoringRoute.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/config/StorageConfig.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/controller/EmployeeController.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/controller/FileUploadController.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/entity/Employee.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/repository/EmployeeRepository.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/service/EmployeeService.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/service/FileStorageService.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/storage/AwsStorageProvider.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/storage/LocalStorageProvider.java
+/Users/in46076885/Documents/Workspace/ExperimentDemo/FileStorageService/src/main/java/mk/dad/services/storage/StorageProvider.java

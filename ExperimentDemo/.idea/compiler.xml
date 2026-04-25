@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="FileStorageService" />
+        <module name="SnakeAndLadder" />
+        <module name="ecom" />
+        <module name="progs" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="kafka-order-optimizer" target="21" />
+      <module name="kafka-poc-publisher" target="17" />
+      <module name="KafkaProducerPOC" target="21" />
+      <module name="KafkaPublisher" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SnakeAndLadder" options="" />
+      <module name="kafka-poc-publisher" options="-parameters" />
+    </option>
+  </component>
+</project>

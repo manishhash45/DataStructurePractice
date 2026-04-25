@@ -1,0 +1,7 @@
+mk/dad/games/model/Board.class
+mk/dad/games/model/GameStatus.class
+mk/dad/games/model/Game.class
+mk/dad/games/service/GameService.class
+mk/dad/games/controller/GameController.class
+mk/dad/games/model/Player.class
+mk/dad/games/SnakeAndLadderApplication.class
