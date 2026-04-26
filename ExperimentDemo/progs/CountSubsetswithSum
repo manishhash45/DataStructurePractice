@@ -1,0 +1,105 @@
+Problem Statement
+
+Given an array arr[] and an integer K, return:
+
+🔥 Number of subsets whose sum is exactly equal to K
+
+
+1. Recursive Solution : Same pick / not-pick, but instead of OR → we add counts
+
+int f(int index, int target, int[] arr) {
+    if (target == 0) return 1;
+    if (index == 0) {
+        if (arr[0] == target) return 1;
+        else return 0;
+    }
+
+    int notTake = f(index - 1, target, arr);
+
+    int take = 0;
+    if (arr[index] <= target) {
+        take = f(index - 1, target - arr[index], arr);
+    }
+
+    return take + notTake;
+}
+
+
+2. Memoization (Top-Down)
+int[][] dp;
+
+int f(int index, int target, int[] arr ) {
+    if (target == 0) return 1;
+    if (index == 0) {
+        if (arr[0] == target) return 1;
+        else return 0;
+    }
+
+    if (dp[index][target] != -1) return dp[index][target];
+
+    int notTake = f(index - 1, target, arr);
+
+    int take = 0;
+    if (arr[index] <= target) {
+        take = f(index - 1, target - arr[index], arr);
+    }
+
+    return dp[index][target] = take + notTake;
+}
+
+3. Tabulation (Bottom-Up)
+
+int countSubsets(int[] arr, int k) {
+    int n = arr.length;
+    int[][] dp = new int[n][k + 1];
+
+    // Base case
+    for (int i = 0; i < n; i++) dp[i][0] = 1;
+
+    if (arr[0] <= k) dp[0][arr[0]] = 1;
+
+    for (int i = 1; i < n; i++) {
+        for (int target = 0; target <= k; target++) {
+
+            int notTake = dp[i - 1][target];
+
+            int take = 0;
+            if (arr[i] <= target) {
+                take = dp[i - 1][target - arr[i]];
+            }
+
+            dp[i][target] = take + notTake;
+        }
+    }
+
+    return dp[n - 1][k];
+}
+
+
+4. Space Optimization
+
+int countSubsets(int[] arr, int k) {
+    int[] dp = new int[k + 1];
+    dp[0] = 1;
+
+    for (int num : arr) {
+        for (int target = k; target >= num; target--) {
+            dp[target] += dp[target - num];
+        }
+    }
+
+    return dp[k];
+}
+
+
+Special Case: Zeros (VERY IMPORTANT)
+
+If array contains 0, then:
+
+Each zero can be taken or not taken → doubles count
+
+
+Fix for Zero Case
+Base case correction:
+if (arr[0] == 0) dp[0][0] = 2; // take or not take
+else dp[0][0] = 1;

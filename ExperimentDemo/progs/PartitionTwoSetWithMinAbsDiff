@@ -1,0 +1,69 @@
+1. Tabulation Approach (Best to Understand)
+
+public int minSubsetSumDifference(int[] arr) {
+    int n = arr.length;
+
+    int total = 0;
+    for (int num : arr) total += num;
+
+    boolean[][] dp = new boolean[n][total + 1];
+
+    // Base case
+    for (int i = 0; i < n; i++) dp[i][0] = true;
+
+    if (arr[0] <= total) dp[0][arr[0]] = true;
+
+    // Fill DP
+    for (int i = 1; i < n; i++) {
+        for (int target = 1; target <= total; target++) {
+
+            boolean notTake = dp[i - 1][target];
+
+            boolean take = false;
+            if (arr[i] <= target) {
+                take = dp[i - 1][target - arr[i]];
+            }
+
+            dp[i][target] = take || notTake;
+        }
+    }
+
+    // Find minimum difference
+    int minDiff = Integer.MAX_VALUE;
+
+    for (int s1 = 0; s1 <= total / 2; s1++) {
+        if (dp[n - 1][s1]) {
+            int diff = Math.abs(total - 2 * s1);
+            minDiff = Math.min(minDiff, diff);
+        }
+    }
+
+    return minDiff;
+}
+
+
+2. Space Optimized (Interview Preferred)
+
+public int minSubsetSumDifference(int[] arr) {
+    int total = 0;
+    for (int num : arr) total += num;
+
+    boolean[] dp = new boolean[total + 1];
+    dp[0] = true;
+
+    for (int num : arr) {
+        for (int target = total; target >= num; target--) {
+            dp[target] = dp[target] || dp[target - num];
+        }
+    }
+
+    int minDiff = Integer.MAX_VALUE;
+
+    for (int s1 = 0; s1 <= total / 2; s1++) {
+        if (dp[s1]) {
+            minDiff = Math.min(minDiff, total - 2 * s1);
+        }
+    }
+
+    return minDiff;
+}
